@@ -35,11 +35,9 @@ const styles = StyleSheet.create({
   button:{
     alignItems:'center',
     marginTop:15,
-    paddingTop:15,
-    paddingBottom:15,
-    paddingLeft:100,
-    paddingRight:100,
-    backgroundColor:'#00FFFF',
+    paddingLeft:75,
+    paddingRight:75,
+    backgroundColor:'#1E90FF',
     borderRadius:30
   },
   txt:{
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   txtbut:{
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: '700',
     color: 'white',
   },
