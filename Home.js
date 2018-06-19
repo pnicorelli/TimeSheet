@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, Button,  View, Text, StyleSheet,  Image} from 'react-native';
+import { Alert, AppRegistry, View, Text, StyleSheet, ImageBackground} from 'react-native';
+import { Button } from 'native-base';
 
 export default class ButtonBasics extends Component {
   render() {
     return (
-      <Image source={require('./blurBg.png')} style={styles.backgroundImage}>
-      <View style={{flex:5,alignItems:'center', justifyContent:'center',}}>
-        <View style={styles.container}>
-          <Text style={styles.title}> CYRIUS </Text>
-          <Text style={styles.txt}> TIMESHEET </Text>
+      <ImageBackground source={require('./blurBg.png')} style={styles.backgroundImage}>
+        <View style={{flex:5,alignItems:'center', justifyContent:'center',}}>
+          <View style={styles.container}>
+            <Text style={styles.title}> CYRIUS </Text>
+            <Text style={styles.txt}> TIMESHEET </Text>
+            </View>
+            <View style={styles.container}>
+            <Button style={styles.button} onPress={() => this.props.navigation.navigate('ScanQR')}>
+              <Text style={styles.txtbut}>Log In</Text>
+            </Button>
+          </View>
         </View>
-        <View style={styles.container}>
-          <Button onPress={() => this.props.navigation.navigate('ScanQR')} title="Log In" />
-        </View>
-      </View>
-      </Image>
+      </ImageBackground>
     );
   }
 }
@@ -25,9 +28,19 @@ const styles = StyleSheet.create({
     justifyContent:'center'
   },
   backgroundImage: {
-      flex: 1,
+      flex:5,
       width: null,
       height: null,
+  },
+  button:{
+    alignItems:'center',
+    marginTop:15,
+    paddingTop:15,
+    paddingBottom:15,
+    paddingLeft:100,
+    paddingRight:100,
+    backgroundColor:'#00FFFF',
+    borderRadius:30
   },
   txt:{
     fontSize: 50,
@@ -37,6 +50,11 @@ const styles = StyleSheet.create({
   title:{
     fontSize: 74,
     fontWeight: '500',
+    color: 'white',
+  },
+  txtbut:{
+    fontSize: 15,
+    fontWeight: '700',
     color: 'white',
   },
   });
