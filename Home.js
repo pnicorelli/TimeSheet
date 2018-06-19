@@ -4,7 +4,7 @@ import { Alert, AppRegistry, Button,  View, Text, StyleSheet,  Image} from 'reac
 export default class ButtonBasics extends Component {
   render() {
     return (
-      <Image source={require('/blurBg.png')} style={styles.backgroundImage}>
+      <Image source={require('./blurBg.png')} style={styles.backgroundImage}>
       <View style={{flex:5,alignItems:'center', justifyContent:'center',}}>
         <View style={styles.container}>
           <Text style={styles.title}> CYRIUS </Text>
