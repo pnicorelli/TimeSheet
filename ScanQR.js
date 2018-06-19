@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert} from 'react-native';
-import{Header, Body, Title} from 'native-base';
+import { Text, View, StyleSheet, Alert } from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
 
 export default class App extends Component {
@@ -20,17 +19,21 @@ export default class App extends Component {
     });
   };
 
+  static navigationOptions = {
+      title: 'Scannerizza il QRCode',
+    };
+
   _handleBarCodeRead = data => {
-if (this.state.qrread === false){
+    if(this.state.qrread === false){
     Alert.alert(
       'Scan successful!',
-      JSON.stringify(data.data)
+      JSON.stringify(data)
     );
     this.setState({
       qrread:true
     })
   }
-};
+  };
 
   render() {
     return (
@@ -41,7 +44,9 @@ if (this.state.qrread === false){
       , accedi al tuo account e scannerizza il codice QR.</Text>
       </View>
         <View style={{flex:1,}} >
-          {this.state.hasCameraPermission === false ?
+          {this.state.hasCameraPermission === null ?
+            <Text>Permettere l accesso alla Fotocamera</Text> :
+            this.state.hasCameraPermission === false ?
               <Text>Accesso alla Fotocamera non consentito</Text> :
               <BarCodeScanner
                 torchMode="off"
@@ -49,7 +54,6 @@ if (this.state.qrread === false){
                 style={styles.camera}
               />
             }
-
             </View>
           </View>
     );
