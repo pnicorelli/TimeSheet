@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Alert, AppRegistry, View, Text, StyleSheet, ImageBackground} from 'react-native';
 import { Button } from 'native-base';
 
-export default class ButtonBasics extends Component {
+export default class Home extends Component {
+  static navigationOptions = {
+      header: null
+  }
+
   render() {
     return (
       <ImageBackground source={require('./blurBg.png')} style={styles.backgroundImage}>
